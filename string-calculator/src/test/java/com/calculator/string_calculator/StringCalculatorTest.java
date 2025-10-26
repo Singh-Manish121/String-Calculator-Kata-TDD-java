@@ -41,4 +41,17 @@ public class StringCalculatorTest {
         assertTrue(exception.getMessage().contains("-2"));
         assertTrue(exception.getMessage().contains("-4"));
     }
+
+    @Test
+    void testGetCalledCount() {
+        StringCalculator calc = new StringCalculator();
+
+        assertEquals(0, calc.GetCalledCount());
+
+        calc.add("1,2");
+        assertEquals(1, calc.GetCalledCount());
+
+        calc.add("3,4,5");
+        assertEquals(2, calc.GetCalledCount());
+}
 }

@@ -1,7 +1,11 @@
 package com.calculator.string_calculator;
 
 public class StringCalculator {
+    private int callCount = 0;
+
     public int add(String numbers){
+        callCount++;
+
         if (numbers == null || numbers.isEmpty()) {
             return 0;
         }
@@ -39,5 +43,9 @@ public class StringCalculator {
         }
 
         return sum;
-    }    
+    }
+
+    public int GetCalledCount() {
+        return callCount;
+    }
 }
