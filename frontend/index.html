@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="StringCalculatorApp">
+  <head>
+    <meta charset="UTF-8" />
+    <title>String Calculator</title>
+
+    <!-- ✅ Load AngularJS FIRST -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <!-- ✅ Then load your app -->
+    <script src="app.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      input,
+      button {
+        font-size: 16px;
+        padding: 6px;
+        margin: 5px 0;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+      .result {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="CalculatorController">
+    <h2>🧮 String Calculator</h2>
+
+    <p>
+      <label>Enter numbers:</label><br />
+      <input
+        type="text"
+        ng-model="numbers"
+        placeholder="e.g. 1,2,3 or //;\n1;2"
+      />
+    </p>
+
+    <button ng-click="calculate()">Add</button>
+
+    <p class="result" ng-if="result !== ''">Result: {{ result }}</p>
+
+    <p class="error" ng-if="error">Error: {{ error }}</p>
+
+    <p><strong>Add called count:</strong> {{ callCount }}</p>
+  </body>
+</html>
