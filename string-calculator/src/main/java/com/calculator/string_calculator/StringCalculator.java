@@ -6,7 +6,7 @@ public class StringCalculator {
     public int add(String numbers){
         callCount++;
 
-        if (numbers == null || numbers.isEmpty()) {
+        if (numbers == null) {
             return 0;
         }
 

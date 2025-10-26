@@ -5,6 +5,7 @@ import com.calculator.string_calculator.StringCalculator;
 import com.calculator.string_calculator.models.models.*;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class StringCalculatorController {
@@ -12,7 +13,7 @@ public class StringCalculatorController {
     private final StringCalculator calculator = new StringCalculator();
 
     @PostMapping("/add")
-    public ResponseEntity<?> addNumbers(@RequestBody String input) {
+    public ResponseEntity<?> addNumbers(@RequestBody(required = false) String input) {
         try {
             int result = calculator.add(input);
             int callCount = calculator.GetCalledCount();
