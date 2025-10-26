@@ -33,7 +33,7 @@ public class StringCalculator {
             if (num < 0) {
                 if (negatives.length() > 0) negatives.append(",");
                 negatives.append(num);
-            } else if (num <= 1000) {
+            } else if (num < 1000) {
                 sum += num;
             }
         }

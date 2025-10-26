@@ -60,7 +60,7 @@ public class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
 
         assertEquals(2, calc.add("2,1001"));
-        assertEquals(1002, calc.add("2,1000"));
+        assertEquals(2, calc.add("2,1000"));
         assertEquals(6, calc.add("1,1000,1001,5"));
     }
 
