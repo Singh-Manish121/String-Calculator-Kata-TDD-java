@@ -10,6 +10,8 @@ public class StringCalculatorTest {
     void shouldReturnZeroForEmptyString(){
         StringCalculator calc = new StringCalculator();
         assertEquals(0, calc.add(""));
+        assertEquals(6, calc.add("1,2,3"));
+        assertEquals(10, calc.add("1,2,3,4"));
     }
     
     
