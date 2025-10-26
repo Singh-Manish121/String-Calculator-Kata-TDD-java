@@ -21,5 +21,11 @@ public class StringCalculatorTest {
         assertEquals(10, calc.add("1\n2\n3,4"));
     }
     
+    @Test
+    void testCustomDelimiter() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(3, calc.add("//;\n1;2"));
+        assertEquals(6, calc.add("//|\n1|2|3"));
+    }
     
 }
