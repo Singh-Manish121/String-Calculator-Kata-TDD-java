@@ -19,9 +19,23 @@ public class StringCalculator {
 
         String[] tokens = numbers.split(delimiter + "|,|\n");
         int sum = 0;
+        StringBuilder negatives = new StringBuilder();
 
         for (String token : tokens) {
-            sum += Integer.parseInt(token);
+            if (token.isEmpty()) continue;
+
+            int num = Integer.parseInt(token);
+
+            if (num < 0) {
+                if (negatives.length() > 0) negatives.append(",");
+                negatives.append(num);
+            } else {
+                sum += num;
+            }
+        }
+
+        if (negatives.length() > 0) {
+            throw new RuntimeException("Negatives not allowed: " + negatives);
         }
 
         return sum;

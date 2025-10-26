@@ -1,6 +1,8 @@
 package com.calculator.string_calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -28,4 +30,15 @@ public class StringCalculatorTest {
         assertEquals(6, calc.add("//|\n1|2|3"));
     }
     
+    @Test
+    void testNegativeNumbersThrowException() {
+        StringCalculator calc = new StringCalculator();
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            calc.add("1,-2,3,-4");
+        });
+
+        assertTrue(exception.getMessage().contains("-2"));
+        assertTrue(exception.getMessage().contains("-4"));
+    }
 }
